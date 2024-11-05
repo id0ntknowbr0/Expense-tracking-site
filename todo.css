@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    height: 100vh; 
+    width: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #000428, #004e92); 
+    color: #fff;  
+}
+
+.todo-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;  
+}
+
+.title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 2px solid #6200ea;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+#add-task-btn {
+    padding: 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 8px;
+    transition: background-color 0.3s;
+}
+
+#add-task-btn:hover {
+    background-color: #3700b3;
+}
+
+#task-list {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.task.completed .task-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #4caf50;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    animation: strike 0.5s forwards;
+}
+
+@keyframes strike {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.task.completed .task-text {
+    color: #4caf50;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.task-text {
+    position: relative;
+    flex-grow: 1;
+}
+
+.task button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 16px;
+    transition: color 0.3s;
+    margin-left: 10px;
+}
+
+.task button:hover {
+    color: #f44336;
+}
